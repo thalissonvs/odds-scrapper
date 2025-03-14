@@ -15,7 +15,30 @@ loguru = "^0.7.3"
 
 [tool.poetry.group.dev.dependencies]
 ipython = "^9.0.2"
+taskipy = "^1.14.1"
+ruff = "^0.11.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+exclude = ['tests', 'tests/*']
+ignore = ['PLR0917', 'PLR0913']
+
+[tool.ruff.format]
+preview = true
+quote-style = 'single'
+exclude = ['tests', 'tests/*']
+
+[tool.taskipy.tasks]
+lint = 'ruff check .; ruff check . --diff'
+format = 'ruff check . --fix; ruff format .'

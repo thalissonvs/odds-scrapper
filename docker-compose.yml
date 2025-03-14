@@ -1,0 +1,17 @@
+services:
+  odds-scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: odds-scraper
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+    healthcheck:
+      test: ["CMD", "ls", "/app/logs"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s 
