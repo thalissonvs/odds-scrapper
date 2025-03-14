@@ -88,7 +88,7 @@ If you prefer to run the application directly on your system, follow these steps
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/odds-scraper.git
+   git clone https://github.com/thalissonvs/odds-scraper.git
    cd odds-scraper
    ```
 
